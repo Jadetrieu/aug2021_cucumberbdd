@@ -8,4 +8,3 @@ Feature: Login Feature Test
     When I click on Login Button
     Then I should be able to successfully log in
 
-  #hasanyc2@gmail.com/Test$1234
