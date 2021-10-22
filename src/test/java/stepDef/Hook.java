@@ -3,9 +3,11 @@ package stepDef;
 import Base.Setup;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
+import org.openqa.selenium.By;
 import org.testng.util.Strings;
 
 public class Hook extends Setup {
+    public static String login;
     public static String email;
     public static String password;
     public static String envData = System.getProperty("env");
