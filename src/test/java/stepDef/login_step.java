@@ -32,7 +32,17 @@ public class login_step extends Setup {
 
     @When("I click on Login Button")
     public void iClickOnLoginButton() {
+        login.clickLoginButton();
         // one param
 
+    }
+
+    @And("I click Create New Account Button in Login Page")
+    public void iClickCreateNewAccountButtonInLoginPage() {
+        login.clickCreateNewAccountBtn();
+    }
+
+    @And("I enter a invalid email address")
+    public void iEnterAInvalidEmailAddress() {
     }
 }

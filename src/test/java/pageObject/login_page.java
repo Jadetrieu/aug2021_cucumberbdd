@@ -21,6 +21,9 @@ public class login_page extends Setup {
     public WebElement passwordLocator;
     @FindBy(how= How.CLASS_NAME, using = "my-login")
     public WebElement loginButton;
+    @FindBy(how= How.CLASS_NAME, using = "new-account")
+    public WebElement createNewAccount;
+
 
     // Function
     public void enterEmailAddress(String email){
@@ -29,6 +32,8 @@ public class login_page extends Setup {
     public void enterPassword(String pass){
         passwordLocator.sendKeys(pass);
     }
-    public void clickLoginButton(){loginButton.click();
+    public void clickLoginButton(){loginButton.click();}
+    public void clickCreateNewAccountBtn(){
+        createNewAccount.click();
     }
 }

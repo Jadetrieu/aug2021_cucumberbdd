@@ -3,11 +3,13 @@ package stepDef;
 import Base.Setup;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
+import io.cucumber.java.Scenario;
 import org.openqa.selenium.By;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.testng.util.Strings;
 
 public class Hook extends Setup {
-    public static String login;
     public static String email;
     public static String password;
     public static String envData = System.getProperty("env");
@@ -50,8 +52,18 @@ public class Hook extends Setup {
 
 
     @After
-    public void endTest(){
+    public void endTest(Scenario scenario){
         // happen after each test
         // what happen if test fails? what you will do for the  failing test case? screenshot? logs? ??
+
+        try {
+            if (scenario.isFailed()){
+                final byte[] screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
+                // embed it in the report.
+                scenario.attach(screenshot, "image/png", scenario.getName());
+            }
+        } finally {
+            //driver.quit();
+        }
     }
 }
